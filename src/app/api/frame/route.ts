@@ -104,6 +104,7 @@ export async function POST(req: NextRequest): Promise<Response> {
           image: `${NEXT_PUBLIC_URL}/nft.png`,
           description: "This is my cool NFT",
         },
+        compressed: true,
       }),
     };
 

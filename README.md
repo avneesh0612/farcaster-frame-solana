@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NFT minting Farcaster frame on Solana
 
-## Getting Started
+A Farcaster frame that allows users to mint NFTs on solana directly to their wallets or email after recasting and liking the cast. Check out the [blog](https://blog.avneesh.tech/farcaster-frames-solana) for more details on how to create this frame and check out this [cast]() to see the frame in action.
 
-First, run the development server:
+## Tools
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Tools used in this project are:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Next.js](https://nextjs.org/): We'll use next.js as our framework for creating the frame.
+- [Crossmint](https://www.crossmint.com/): To mint NFTs on solana to the user's wallet address or email, we'll use crossmint.
+- [Neynar](https://neynar.com/): We will use neynar to check whether the user has recasted and liked the cast.
+- [Onchainkit](https://onchainkit.xyz/): We will use the onchainkit to create the frame, and get the message from the frame on our server.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to use
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Deploy the frame to vercel:
 
-## Learn More
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Favneesh0612%2Ffarcaster-frame-solana&env=NEXT_PUBLIC_URL,CROSSMINT_ENV,NEYNAR_API_KEY,WARPCAST_HASH,CROSSMINT_API_KEY&envDescription=Check%20out%20what%20to%20enter%20in%20the%20env%20vars%20on%20the%20blog&envLink=https%3A%2F%2Fblog.avneesh.tech%2Ffarcaster-frames-solana%23heading-getting-to-production)
 
-To learn more about Next.js, take a look at the following resources:
+Set the environment variables:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `NEXT_PUBLIC_URL`: The URL of your next.js app.
+- `CROSSMINT_API_KEY`: The API key for crossmint. Head over to the [API keys section](https://staging.crossmint.com/console/projects/apiKeys) in the Crossmint dashboard and create a new server key with permission to mint NFTs. Then, add the key as an environment variable.
+- `CROSSMINT_ENV`: If you switch over your app from testnet to mainnet, you can add the environment variable `CROSSMINT_ENV` and set it to `www`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+If you want to check whether the user has recasted and liked the cast, you can add the following environment variables:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `WARPCAST_HASH`: The hash of the cast which you want to check has been recasted and liked.
+- `NEYNAR_API_KEY` The API key for neynar. You can get it from the [neynar dashboard](https://dev.neynar.com/).

@@ -89,7 +89,7 @@ export async function POST(req: NextRequest): Promise<Response> {
       recipientAddress = `solana:${input}`;
     }
 
-    const crossmintURL = `https://${env}.crossmint.com/api/2022-06-09/collections/56d9e10d-3caf-46a8-80a3-a507d034e51f/nfts`;
+    const crossmintURL = `https://${env}.crossmint.com/api/2022-06-09/collections/${process.env.CROSSMINT_COLLECTION_ID}/nfts`;
     const crossmintOptions = {
       method: "POST",
       headers: {

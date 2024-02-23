@@ -15,6 +15,27 @@ export async function POST(req: NextRequest): Promise<Response> {
   const body: FrameRequest = await req.json();
   const env = process.env.CROSSMINT_ENV || "staging";
 
+  if (
+    Number(process.env.WARPCAST_HASH!) ===
+    0x7dc70d75b24caf64fc23d2e835439dff351f2de9
+  ) {
+    return new NextResponse(
+      getFrameHtmlResponse({
+        image: {
+          src: `${NEXT_PUBLIC_URL}/soldOut.png`,
+        },
+        ogTitle: "Sold out",
+        buttons: [
+          {
+            label: "Follow",
+            action: "link",
+            target: "https://warpcast.com/avneesh",
+          },
+        ],
+      })
+    );
+  }
+
   try {
     const { message } = await getFrameMessage(body, {
       neynarApiKey: "NEYNAR_ONCHAIN_KIT",

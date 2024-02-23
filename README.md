@@ -22,7 +22,7 @@ Set the environment variables:
 - `NEXT_PUBLIC_URL`: The URL of your next.js app.
 - `CROSSMINT_API_KEY`: The API key for crossmint. Head over to the [API keys section](https://staging.crossmint.com/console/projects/apiKeys) in the Crossmint dashboard and create a new server key with permission to mint NFTs. Then, add the key as an environment variable.
 - `CROSSMINT_ENV`: If you switch over your app from testnet to mainnet, you can add the environment variable `CROSSMINT_ENV` and set it to `www`.
-- `CROSSMINT_COLLECTION_ID`: The collection id of the collection in which you want to mint the NFTs. 
+- `CROSSMINT_COLLECTION_ID`: The collection id of the collection in which you want to mint the NFTs.
 
 If you want to check whether the user has recasted and liked the cast, you can add the following environment variables:
 
